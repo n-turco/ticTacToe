@@ -1,0 +1,33 @@
+﻿<Window x:Class="ticTacToe.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ticTacToe"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <!--Tic Tac Toe Board-->
+    <Grid x:Name="GameBoard">
+        <!--Columns-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="Left"
+                              Width="*"
+                              />
+            <ColumnDefinition x:Name="Middle"
+                  Width="*"
+                  />
+            <ColumnDefinition x:Name="Right"
+                  Width="*"
+                  />
+        </Grid.ColumnDefinitions>
+        <!--Rows-->
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="Top"
+                />
+            <RowDefinition x:Name="Center"
+                />
+            <RowDefinition x:Name="Bottom"
+                />
+        </Grid.RowDefinitions>
+    </Grid>
+</Window>

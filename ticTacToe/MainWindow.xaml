@@ -8,26 +8,34 @@
         Title="MainWindow" Height="450" Width="800">
     <!--Tic Tac Toe Board-->
     <Grid x:Name="GameBoard">
-        <!--Columns-->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="Left"
-                              Width="*"
-                              />
-            <ColumnDefinition x:Name="Middle"
-                  Width="*"
-                  />
-            <ColumnDefinition x:Name="Right"
-                  Width="*"
-                  />
-        </Grid.ColumnDefinitions>
-        <!--Rows-->
+
+        <!-- Rows -->
         <Grid.RowDefinitions>
-            <RowDefinition x:Name="Top"
-                />
-            <RowDefinition x:Name="Center"
-                />
-            <RowDefinition x:Name="Bottom"
-                />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
+        <!-- Columns -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!--Board Cells -->
+        <Button x:Name="TopLeft" Grid.Row="0" Grid.Column="0" FontSize="32"/>
+        <Button x:Name="TopCenter" Grid.Row="0" Grid.Column="1" FontSize="32"/>
+        <Button x:Name="TopRight" Grid.Row="0" Grid.Column="2" FontSize="32"/>
+
+        <Button x:Name="MiddleLeft" Grid.Row="1" Grid.Column="0" FontSize="32"/>
+        <Button x:Name="MiddleCenter" Grid.Row="1" Grid.Column="1" FontSize="32"/>
+        <Button x:Name="MiddleRight" Grid.Row="1" Grid.Column="2" FontSize="32"/>
+
+        <Button x:Name="BottomLeft" Grid.Row="2" Grid.Column="0" FontSize="32"/>
+        <Button x:Name="BottomCenter" Grid.Row="2" Grid.Column="1" FontSize="32"/>
+        <Button x:Name="BottomRight" Grid.Row="2" Grid.Column="2" FontSize="32"/>
+
     </Grid>
+
 </Window>

@@ -11,20 +11,22 @@ using System.Windows.Shapes;
 
 namespace ticTacToe
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+       static readonly Player player1 = new();
+       static readonly Player player2 = new();
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();        
+            StatusBar.Content = "Player Ones Turn";
+
         }
 
         /////////////////     Button Click events     ////////////////////
         private void TopLeft_Click(object sender, RoutedEventArgs e)
         {
- 
+            GameSequence();
+            
         }
         private void TopCenter_Click(object sender, RoutedEventArgs e)
         {
@@ -55,6 +57,15 @@ namespace ticTacToe
 
         }
         private void BottomRight_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public static void GameSequence()
+        {
+  
+        }
+        public static void YouWin()
         {
 
         }

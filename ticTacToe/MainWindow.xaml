@@ -5,41 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ticTacToe"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <!--Tic Tac Toe Board-->
-    <Grid x:Name="GameBoard">
+        Title="MainWindow"
+        Height="450"
+        Width="800">
 
-        <!-- Rows -->
+    <!-- Root layout -->
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <!-- Game board -->
+            <RowDefinition Height="Auto" />
+            <!-- Status bar -->
         </Grid.RowDefinitions>
 
-        <!-- Columns -->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+        <!-- Tic Tac Toe Board -->
+        <Grid x:Name="GameBoard" Grid.Row="0">
 
-        <!--Board Cells -->
-        <!-- Top -->
-        <Button x:Name="TopLeft" Grid.Row="0" Grid.Column="0" FontSize="32" Click="TopLeft_Click"/>
-        <Button x:Name="TopCenter" Grid.Row="0" Grid.Column="1" FontSize="32" Click="TopCenter_Click"/>
-        <Button x:Name="TopRight" Grid.Row="0" Grid.Column="2" FontSize="32" Click="TopRight_Click"/>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
 
-        <!-- Middle -->
-        <Button x:Name="MiddleLeft" Grid.Row="1" Grid.Column="0" FontSize="32" Click="MiddleLeft_Click"/>
-        <Button x:Name="MiddleCenter" Grid.Row="1" Grid.Column="1" FontSize="32" Click="MiddleCenter_Click"/>
-        <Button x:Name="MiddleRight" Grid.Row="1" Grid.Column="2" FontSize="32" Click="MiddleRight_Click"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
 
-        <!-- Bottom -->
-        <Button x:Name="BottomLeft" Grid.Row="2" Grid.Column="0" FontSize="32" Click="BottomLeft_Click"/>
-        <Button x:Name="BottomCenter" Grid.Row="2" Grid.Column="1" FontSize="32" Click="BottomCenter_Click"/>
-        <Button x:Name="BottomRight" Grid.Row="2" Grid.Column="2" FontSize="32" Click="BottomRight_Click"/>
+            <!-- Top -->
+            <Button x:Name="TopLeft" Grid.Row="0" Grid.Column="0" FontSize="32" Click="TopLeft_Click"/>
+            <Button x:Name="TopCenter" Grid.Row="0" Grid.Column="1" FontSize="32" Click="TopCenter_Click"/>
+            <Button x:Name="TopRight" Grid.Row="0" Grid.Column="2" FontSize="32" Click="TopRight_Click"/>
 
+            <!-- Middle -->
+            <Button x:Name="MiddleLeft" Grid.Row="1" Grid.Column="0" FontSize="32" Click="MiddleLeft_Click"/>
+            <Button x:Name="MiddleCenter" Grid.Row="1" Grid.Column="1" FontSize="32" Click="MiddleCenter_Click"/>
+            <Button x:Name="MiddleRight" Grid.Row="1" Grid.Column="2" FontSize="32" Click="MiddleRight_Click"/>
 
+            <!-- Bottom -->
+            <Button x:Name="BottomLeft" Grid.Row="2" Grid.Column="0" FontSize="32" Click="BottomLeft_Click"/>
+            <Button x:Name="BottomCenter" Grid.Row="2" Grid.Column="1" FontSize="32" Click="BottomCenter_Click"/>
+            <Button x:Name="BottomRight" Grid.Row="2" Grid.Column="2" FontSize="32" Click="BottomRight_Click"/>
+        </Grid>
+
+        <!-- Status bar -->
+        <Label x:Name="StatusBar" FontSize="14" Grid.Row="1" Margin="10"/>
     </Grid>
-
 </Window>

@@ -11,9 +11,9 @@ namespace ticTacToe
     class Logger
     {
         //save log file where ever the .exe is placed
-        static string path = AppDomain.CurrentDomain.BaseDirectory;
-        static string logPath = Path.Combine(path, "EventLogger.log");
-        private static readonly object FileLock = new object();
+        readonly static string path = AppDomain.CurrentDomain.BaseDirectory;
+        readonly static string logPath = Path.Combine(path, "Logfile.log");
+        private static readonly object FileLock = new();
 
         
         public enum LogType

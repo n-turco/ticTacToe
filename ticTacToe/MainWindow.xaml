@@ -34,19 +34,19 @@
             </Grid.ColumnDefinitions>
 
             <!-- Top -->
-            <Button x:Name="TopLeft" Grid.Row="0" Grid.Column="0" FontSize="32" Click="TopLeft_Click"/>
-            <Button x:Name="TopCenter" Grid.Row="0" Grid.Column="1" FontSize="32" Click="TopCenter_Click"/>
-            <Button x:Name="TopRight" Grid.Row="0" Grid.Column="2" FontSize="32" Click="TopRight_Click"/>
+            <Button x:Name="TopLeft" Grid.Row="0" Grid.Column="0" FontSize="32" Click="Cell_Click"/>
+            <Button x:Name="TopCenter" Grid.Row="0" Grid.Column="1" FontSize="32" Click="Cell_Click"/>
+            <Button x:Name="TopRight" Grid.Row="0" Grid.Column="2" FontSize="32" Click="Cell_Click"/>
 
             <!-- Middle -->
-            <Button x:Name="MiddleLeft" Grid.Row="1" Grid.Column="0" FontSize="32" Click="MiddleLeft_Click"/>
-            <Button x:Name="MiddleCenter" Grid.Row="1" Grid.Column="1" FontSize="32" Click="MiddleCenter_Click"/>
-            <Button x:Name="MiddleRight" Grid.Row="1" Grid.Column="2" FontSize="32" Click="MiddleRight_Click"/>
+            <Button x:Name="MiddleLeft" Grid.Row="1" Grid.Column="0" FontSize="32" Click="Cell_Click"/>
+            <Button x:Name="MiddleCenter" Grid.Row="1" Grid.Column="1" FontSize="32" Click="Cell_Click"/>
+            <Button x:Name="MiddleRight" Grid.Row="1" Grid.Column="2" FontSize="32" Click="Cell_Click"/>
 
             <!-- Bottom -->
-            <Button x:Name="BottomLeft" Grid.Row="2" Grid.Column="0" FontSize="32" Click="BottomLeft_Click"/>
-            <Button x:Name="BottomCenter" Grid.Row="2" Grid.Column="1" FontSize="32" Click="BottomCenter_Click"/>
-            <Button x:Name="BottomRight" Grid.Row="2" Grid.Column="2" FontSize="32" Click="BottomRight_Click"/>
+            <Button x:Name="BottomLeft" Grid.Row="2" Grid.Column="0" FontSize="32" Click="Cell_Click"/>
+            <Button x:Name="BottomCenter" Grid.Row="2" Grid.Column="1" FontSize="32" Click="Cell_Click"/>
+            <Button x:Name="BottomRight" Grid.Row="2" Grid.Column="2" FontSize="32" Click="Cell_Click"/>
         </Grid>
 
         <!-- Status bar -->

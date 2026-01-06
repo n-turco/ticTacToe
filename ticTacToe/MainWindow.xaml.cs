@@ -24,50 +24,40 @@ namespace ticTacToe
         }
 
         /////////////////     Button Click events     ////////////////////
-        private void TopLeft_Click(object sender, RoutedEventArgs e)
+        private void Cell_Click(object sender, RoutedEventArgs e)
         {
-              
-        }
-        private void TopCenter_Click(object sender, RoutedEventArgs e)
-        {
+            //create button object to get the row and column
+            Button btn = (Button)sender;
 
-        }
-        private void TopRight_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void MiddleLeft_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void MiddleCenter_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void MiddleRight_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void BottomLeft_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void BottomCenter_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void BottomRight_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        public static void GameSequence()
-        {
+            int row = Grid.GetRow(btn);
+            int col = Grid.GetColumn(btn);
             
+            if (!GameLogic.MakeMove(row, col))
+                return;
+            //update the button with the players choice
+            btn.Content = GameLogic.SelectedPlayer == GameLogic.CurrentPlayer.O ? "X" : "O";
+            //update the status bar
+            UpdateStatus();
         }
-        public static void YouWin()
-        {
 
+        private void UpdateStatus()
+        {
+            switch (GameLogic.CurrentGameState)
+            {
+                case GameLogic.GameState.Inprogress:
+                    StatusBar.Content = $"Turn: {GameLogic.SelectedPlayer}";
+                    break;
+                case GameLogic.GameState.Xwins:
+                    StatusBar.Content = "X wins";
+                    break;
+                case GameLogic.GameState.Owins:
+                    StatusBar.Content = "O wins";
+                    break;
+                case GameLogic.GameState.Draw:
+                    StatusBar.Content = "Draw";
+                    break;
+            }
         }
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -29,63 +30,54 @@ namespace ticTacToe
         }
 
         static readonly CellState[,] board = new CellState[3, 3];
-        public static string? XandO {  get; set; }
         public static CurrentPlayer SelectedPlayer { get; set; }
         public static GameState CurrentGameState { get; set; }
         public static CellState CurrentCellState { get; set; }
 
-        //determine which player is choosing
-        public static string CheckPlayer (CurrentPlayer SelectedPlayer)
-        {
-            if(XandO == null)
-            {
-                //default assignment
-                XandO = "x";
-            }
-            if (SelectedPlayer == CurrentPlayer.X) 
-            {
-                XandO = "x";
-            }
-            if (SelectedPlayer == CurrentPlayer.O) 
-            {  
-                XandO = "o";
-            }
-            return XandO;
-        }
+
         //determine the status of the game
         public static bool CheckGameForWinner()
         {
             return HorizontalWin() || VerticalWin() || DiagonalWin();
         }
 
-
-        public static bool ValidatePlayerChoice(CellState CurrentCell) 
+        public static bool MakeMove(int row, int column)
         {
-            bool validInput = true;
-            if (CurrentCell != CellState.None)
+            if(CurrentGameState != GameState.Inprogress)
             {
-                validInput = false;
+                return false;
+            }
+            if (board[row, column] != CellState.None)
+            {
+                return false;
+            }
+            //determine if X or O should be written to the cell
+            board[row, column] = SelectedPlayer == CurrentPlayer.X ? CellState.X : CellState.O;
+            //check for winner
+            if (CheckGameForWinner())
+            {
+                CurrentGameState = SelectedPlayer == CurrentPlayer.X ? GameState.Xwins : GameState.Owins;
+            }
+            else if (CheckForDraw()) 
+            {
+                CurrentGameState = GameState.Draw;
             }
             else
             {
-             
+                ChangePlayer();
             }
-                return validInput;
+            return true;
         }
+
         public static void ChangePlayer() 
         {
-            if (CurrentGameState == GameState.Inprogress)
+            if (SelectedPlayer == CurrentPlayer.X)
             {
-                if (SelectedPlayer == CurrentPlayer.X)
-                {
-                    SelectedPlayer = CurrentPlayer.O;
-                    XandO = "o";
-                }
-                else if (SelectedPlayer == CurrentPlayer.O) 
-                {
-                    SelectedPlayer = CurrentPlayer.X;
-                    XandO = "x";
-                }
+                SelectedPlayer = CurrentPlayer.O;
+            }
+            else 
+            {
+                SelectedPlayer = CurrentPlayer.X;
             }
         }
         public static bool HorizontalWin()
@@ -154,5 +146,15 @@ namespace ticTacToe
             }
             return draw;
         }
+        public static void ResetGame()
+        {
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    board[i, j] = CellState.None;
+
+            SelectedPlayer = CurrentPlayer.X;
+            CurrentGameState = GameState.Inprogress;
+        }
+
     }
 }

@@ -15,6 +15,7 @@ namespace ticTacToe
     {
        static readonly Player player1 = new();
        static readonly Player player2 = new();
+       static readonly string? currentPlayer;
         public MainWindow()
         {
             InitializeComponent();        
@@ -25,8 +26,7 @@ namespace ticTacToe
         /////////////////     Button Click events     ////////////////////
         private void TopLeft_Click(object sender, RoutedEventArgs e)
         {
-            GameSequence();
-            
+              
         }
         private void TopCenter_Click(object sender, RoutedEventArgs e)
         {
@@ -63,7 +63,7 @@ namespace ticTacToe
 
         public static void GameSequence()
         {
-  
+            
         }
         public static void YouWin()
         {

@@ -45,10 +45,12 @@ namespace ticTacToe
         {
             if(CurrentGameState != GameState.Inprogress)
             {
+                Logger.Log($"Game is Over.", Logger.LogType.INFO);
                 return false;
             }
             if (board[row, column] != CellState.None)
             {
+                Logger.Log($"Cell is already selected.", Logger.LogType.INFO);
                 return false;
             }
             //determine if X or O should be written to the cell
@@ -57,10 +59,12 @@ namespace ticTacToe
             if (CheckGameForWinner())
             {
                 CurrentGameState = SelectedPlayer == CurrentPlayer.X ? GameState.Xwins : GameState.Owins;
+                Logger.Log($"{SelectedPlayer} Wins.", Logger.LogType.INFO);
             }
             else if (CheckForDraw()) 
             {
                 CurrentGameState = GameState.Draw;
+                Logger.Log($"Game was a draw.", Logger.LogType.INFO);
             }
             else
             {
@@ -154,6 +158,7 @@ namespace ticTacToe
 
             SelectedPlayer = CurrentPlayer.X;
             CurrentGameState = GameState.Inprogress;
+            Logger.Log($"Game has reset.", Logger.LogType.INFO);
         }
 
     }

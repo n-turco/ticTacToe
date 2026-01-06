@@ -18,7 +18,7 @@ namespace ticTacToe
         
         public enum LogType
         {
-            NORMAL,
+            INFO,
             WARNING,
             ERROR
         }

@@ -20,7 +20,12 @@ namespace ticTacToe
             InitializeComponent();
             StatusBar.Content = $"Player {GameLogic.SelectedPlayer}'s turn.";
         }
-
+        private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            GameLogic.ResetGame();
+            ClearBoard();
+            StatusBar.Content = $"Player {GameLogic.SelectedPlayer}'s turn.";
+        }
         private void Cell_Click(object sender, RoutedEventArgs e)
         {
             //create button object to get the row and column

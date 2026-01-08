@@ -15,15 +15,12 @@ namespace ticTacToe
     {
        static readonly Player player1 = new();
        static readonly Player player2 = new();
-       static readonly string? currentPlayer;
         public MainWindow()
         {
             InitializeComponent();        
             StatusBar.Content = "Player Ones Turn";
-
         }
 
-        /////////////////     Button Click events     ////////////////////
         private void Cell_Click(object sender, RoutedEventArgs e)
         {
             //create button object to get the row and column
@@ -33,9 +30,12 @@ namespace ticTacToe
             int col = Grid.GetColumn(btn);
             
             if (!GameLogic.MakeMove(row, col))
+            {
                 return;
+            }  
             //update the button with the players choice
-            btn.Content = GameLogic.SelectedPlayer == GameLogic.CurrentPlayer.O ? "X" : "O";
+            btn.Content = GameLogic.SelectedPlayer == GameLogic.CurrentPlayer.X ? "X" : "O";
+            
             //update the status bar
             UpdateStatus();
         }
@@ -46,18 +46,39 @@ namespace ticTacToe
             {
                 case GameLogic.GameState.Inprogress:
                     StatusBar.Content = $"Turn: {GameLogic.SelectedPlayer}";
+                    GameLogic.ChangePlayer();
                     break;
                 case GameLogic.GameState.Xwins:
-                    StatusBar.Content = "X wins";
+                    StatusBar.Content = "X wins!";
+                    MessageBox.Show($"{GameLogic.SelectedPlayer} Wins!");
+                    ClearBoard();
+                    GameLogic.ResetGame();
                     break;
                 case GameLogic.GameState.Owins:
-                    StatusBar.Content = "O wins";
+                    StatusBar.Content = "O wins!";
+                    MessageBox.Show($"{GameLogic.SelectedPlayer} Wins!");
+                    ClearBoard();
+                    GameLogic.ResetGame();
                     break;
                 case GameLogic.GameState.Draw:
                     StatusBar.Content = "Draw";
+                    MessageBox.Show("Draw!");
+                    ClearBoard();
+                    GameLogic.ResetGame();
                     break;
             }
         }
-
+        private void ClearBoard()
+        {  
+            TopLeft.Content = null;
+            TopRight.Content = null;
+            TopCenter.Content = null;
+            MiddleLeft.Content = null;
+            MiddleRight.Content = null;
+            MiddleCenter.Content = null;
+            BottomLeft.Content = null;
+            BottomRight.Content = null;
+            BottomCenter.Content = null;
+        }
     }
 }

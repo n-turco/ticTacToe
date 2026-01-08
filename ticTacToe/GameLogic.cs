@@ -45,7 +45,7 @@ namespace ticTacToe
         {
             if(CurrentGameState != GameState.Inprogress)
             {
-                Logger.Log($"Game is Over.", Logger.LogType.INFO);
+                Logger.Log($"Game Over.", Logger.LogType.INFO);
                 return false;
             }
             if (board[row, column] != CellState.None)
@@ -68,7 +68,7 @@ namespace ticTacToe
             }
             else
             {
-                ChangePlayer();
+               // ChangePlayer();
             }
             return true;
         }
@@ -153,9 +153,13 @@ namespace ticTacToe
         public static void ResetGame()
         {
             for (int i = 0; i < 3; i++)
+            {
                 for (int j = 0; j < 3; j++)
+                {
                     board[i, j] = CellState.None;
 
+                }
+            }          
             SelectedPlayer = CurrentPlayer.X;
             CurrentGameState = GameState.Inprogress;
             Logger.Log($"Game has reset.", Logger.LogType.INFO);

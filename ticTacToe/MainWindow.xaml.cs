@@ -17,8 +17,8 @@ namespace ticTacToe
        static readonly Player player2 = new();
         public MainWindow()
         {
-            InitializeComponent();        
-            StatusBar.Content = "Player Ones Turn";
+            InitializeComponent();
+            StatusBar.Content = $"Player {GameLogic.SelectedPlayer}'s turn.";
         }
 
         private void Cell_Click(object sender, RoutedEventArgs e)
@@ -44,9 +44,9 @@ namespace ticTacToe
         {
             switch (GameLogic.CurrentGameState)
             {
-                case GameLogic.GameState.Inprogress:
-                    StatusBar.Content = $"Turn: {GameLogic.SelectedPlayer}";
+                case GameLogic.GameState.Inprogress:     
                     GameLogic.ChangePlayer();
+                    StatusBar.Content = $"Turn: {GameLogic.SelectedPlayer}";
                     break;
                 case GameLogic.GameState.Xwins:
                     StatusBar.Content = "X wins!";
@@ -65,6 +65,7 @@ namespace ticTacToe
                     MessageBox.Show("Draw!");
                     ClearBoard();
                     GameLogic.ResetGame();
+                    StatusBar.Content = $"Player {GameLogic.SelectedPlayer}'s turn.";
                     break;
             }
         }

@@ -9,18 +9,29 @@
         Height="450"
         Width="800">
 
-    <!-- Root layout -->
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <!-- Game board -->
+            <!--MenuBar-->
             <RowDefinition Height="Auto" />
+            <!-- Game board -->
+            <RowDefinition Height="*" />
             <!-- Status bar -->
+            <RowDefinition Height="Auto" />
+            
         </Grid.RowDefinitions>
-
+        <!--MenuBar layout-->
+        <Menu x:Name="MenuBar" 
+            Grid.Row="0"
+            >
+            <MenuItem Header="Menu">
+                <MenuItem Header="_New Game"/>
+                <MenuItem Header="E_xit Game"/>
+                <MenuItem Header="_Change player Name"/>
+            </MenuItem>
+        </Menu>
         <!-- Tic Tac Toe Board -->
-        <Grid x:Name="GameBoard" Grid.Row="0">
-
+        <Grid x:Name="GameBoard" Grid.Row="1">
+            
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
@@ -32,7 +43,7 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-
+            
             <!-- Top -->
             <Button x:Name="TopLeft" Grid.Row="0" Grid.Column="0" FontSize="32" Click="Cell_Click"/>
             <Button x:Name="TopCenter" Grid.Row="0" Grid.Column="1" FontSize="32" Click="Cell_Click"/>
@@ -48,8 +59,10 @@
             <Button x:Name="BottomCenter" Grid.Row="2" Grid.Column="1" FontSize="32" Click="Cell_Click"/>
             <Button x:Name="BottomRight" Grid.Row="2" Grid.Column="2" FontSize="32" Click="Cell_Click"/>
         </Grid>
-
+        
         <!-- Status bar -->
-        <Label x:Name="StatusBar" FontSize="14" Grid.Row="1" Margin="10"/>
+        <Label x:Name="StatusBar" FontSize="14" Grid.Row="2" Margin="10">
+        </Label>
+        
     </Grid>
 </Window>

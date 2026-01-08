@@ -66,10 +66,6 @@ namespace ticTacToe
                 CurrentGameState = GameState.Draw;
                 Logger.Log($"Game was a draw.", Logger.LogType.INFO);
             }
-            else
-            {
-               // ChangePlayer();
-            }
             return true;
         }
 
